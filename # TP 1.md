@@ -103,3 +103,17 @@ mount: le point de montage /srv/site3 n'existe pas
 [root@localhost srv]# mount /dev/data/volume3 /srv/site2
 ```
 
+maintenant nous montons la partition dans fstab 
+```bash
+[root@localhost ~]#  14L, 626C written
+[root@localhost ~]# mount -av
+/                         : ignoré
+/boot                     : déjà monté
+swap                      : ignoré
+/srv/site1                : déjà monté
+/srv/site2                : déjà monté
+```
+```bash
+/dev/data/volume1           /srv/site1              ext4    defaults        0 0
+/dev/data/volume3           /srv/site2              ext4    defaults        0 0
+```
