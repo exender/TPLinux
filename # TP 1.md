@@ -11,20 +11,23 @@ baptiste@192.168.56.99's password:
 Last login: Wed Sep 23 14:53:20 2020
 [baptiste@localhost ~]$
 ```
-Maintenant que l'on est connecter en ssh a notre vm commençons par installer LVM 
 
-```bash 
-[baptiste@localhost ~]$ sudo yum install lvm
-Modules complémentaires chargés : fastestmirror
-Determining fastest mirrors
- * base: mirrors.atosworldline.com
- * extras: ftp.pasteur.fr
- * updates: ftp.pasteur.fr
-base                                                                                             | 3.6 kB  00:00:00
-extras                                                                                           | 2.9 kB  00:00:00
-updates                                                                                          | 2.9 kB  00:00:00
-(1/2): extras/7/x86_64/primary_db                                                                | 206 kB  00:00:00
-(2/2): updates/7/x86_64/primary_db                                                               | 4.5 MB  00:00:09
-Aucun paquet lvm disponible.
-Erreur : Rien à faire
-```
+maintenant que notre disque est cree sur la vm nous partitionnons le disque en vm en ligne de commande 
+
+```bash
+[root@localhost ~]# lvcreate
+  No command with matching syntax recognised.  Run 'lvcreate --help' for more information.
+[root@localhost ~]# lvcreate -L 2000 -n volume1 data
+  Logical volume "volume1" created.
+[root@localhost ~]# lvscan
+  ACTIVE            '/dev/centos/swap' [820,00 MiB] inherit
+  ACTIVE            '/dev/centos/root' [<6,20 GiB] inherit
+  ACTIVE            '/dev/data/volume1' [1,95 GiB] inherit
+[root@localhost ~]# lvcreate -L 3000 -n volume3 data
+  Logical volume "volume3" created.
+[root@localhost ~]# lvscan
+  ACTIVE            '/dev/centos/swap' [820,00 MiB] inherit
+  ACTIVE            '/dev/centos/root' [<6,20 GiB] inherit
+  ACTIVE            '/dev/data/volume1' [1,95 GiB] inherit
+  ACTIVE            '/dev/data/volume3' [<2,93 GiB] inherit
+  ```
