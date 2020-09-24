@@ -186,6 +186,15 @@ pour la deuxieme vm
 [root@node2 ~]# hostname
 node2.tp1.b2
 ```
+
+Creation de nouveau user avec les droit sudo 
+
+```bash 
+[root@node2 ~]# useradd admin2
+[root@node2 ~]# vi /etc/sudoers
+```
+sur les deux vm's
+
 ## Install de nginx sous Centos7
 Les package de Nginx sont dans les depos de Epel donc nous devons d'abord ajouter les depot via :
 
