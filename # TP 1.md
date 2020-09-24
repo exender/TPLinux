@@ -3,7 +3,7 @@
 
 Creation de disque SATA de 5 go avant de commencer a partitionner via LVM 
 
-On lance notre vm puis connexion via ssh 
+On lance notre vm puis connexion via ssh pour administrer les vm's
 
 ```bash
 PS C:\Users\bapti> ssh baptiste@192.168.56.99
@@ -12,7 +12,7 @@ Last login: Wed Sep 23 14:53:20 2020
 [baptiste@localhost ~]$
 ```
 
-maintenant que notre disque est cree sur la vm nous partitionnons le disque en vm en ligne de commande 
+maintenant que notre disque est crée sur la vm nous partitionnons le disque en vm en ligne de commande 
 
 ```bash
 [root@localhost ~]# lvcreate
@@ -31,8 +31,9 @@ maintenant que notre disque est cree sur la vm nous partitionnons le disque en v
   ACTIVE            '/dev/data/volume1' [1,95 GiB] inherit
   ACTIVE            '/dev/data/volume3' [<2,93 GiB] inherit
   ```
+ maintenant nous montons les partitions dans les dossiers site 1 et site 2
 ```bash
-  maintenant nous montons les partitions dans les dossiers site 1 et site 2
+ 
   [root@localhost srv]# mkfs -t ext4 /dev/data/Volume1
 mke2fs 1.42.9 (28-Dec-2013)
 Ne peut évaluer par stat() /dev/data/Volume1 --- Aucun fichier ou dossier de ce type
@@ -120,7 +121,7 @@ swap                      : ignoré
 
 
 
-install de nginx sous Centos7
+## Install de nginx sous Centos7
 Les package de Nginx sont dans les depos de Epel donc nous devons d'abord ajouter les depot via :
 
 ```bash
