@@ -1,5 +1,6 @@
 # TP 1 
 ##  Configuration de deux machines CentOS7 configurée de façon basique. 
+### Prérequis
 
 Creation de disque SATA de 5 go avant de commencer a partitionner via LVM 
 
@@ -195,6 +196,14 @@ Creation de nouveau user avec les droit sudo
 ```
 sur les deux vm's
 
+
+## Firewall
+modifcation de firewall 
+```bash
+[root@node1 ~]# vi /etc/selinux/config
+```
+
+
 ## Install de nginx sous Centos7
 Les package de Nginx sont dans les depos de Epel donc nous devons d'abord ajouter les depot via :
 
@@ -248,3 +257,21 @@ une fois fais ceci nous allons pouvoir installer nginx via :
 ```bash 
 sudo yum install -y nginx
 ```
+
+## Creation des fichiers d'index html
+
+creation des fichier on doit changer de directory
+
+```bash 
+[root@node1 ~]#  cd /srv/site1
+[root@node1 site1]#
+[root@node1 site1]# touch index.html
+[root@node1 site1]#
+```
+
+Puis dans le dossier site 2
+
+```bash 
+[root@node1 site1]# cd /srv/site2
+[root@node1 site2]# touch index.html
+
