@@ -122,8 +122,27 @@ Changer le nom des hostnames
 ```bash
 vi /etc/hostname 
 ```
-
-
+Pour check si nous avos internet nous faisons un 
+```bash
+nmcli dev
+```
+```bash
+[root@localhost ~]# nmcli dev
+DEVICE  TYPE      STATE     CONNECTION
+enp0s3  ethernet  connecté  enp0s3
+enp0s8  ethernet  connecté  enp0s8
+lo      loopback  non-géré  --
+```
+puis nous faison un curl de google.com
+```bash
+[root@localhost ~]# curl google.com
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>301 Moved</TITLE></HEAD><BODY>
+<H1>301 Moved</H1>
+The document has moved
+<A HREF="http://www.google.com/">here</A>.
+</BODY></HTML>
+```
 
 ## Install de nginx sous Centos7
 Les package de Nginx sont dans les depos de Epel donc nous devons d'abord ajouter les depot via :

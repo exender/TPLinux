@@ -13,6 +13,3 @@ dirbackup=/backup/backup-$backupdate
 # créé une archive bz2
 # sauvegarde de /home
 /bin/tar -cjf $dirbackup/home-$backupdate.tar.bz2 /home
-
-# sauvegarde mysql
-/usr/bin/mysqldump --user=xxxx --password=xxxx --all-databases | /usr/bin/gzip > $dirbackup/mysqldump-$backupdate.sql.gz
