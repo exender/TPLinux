@@ -118,6 +118,10 @@ swap                      : ignoré
 /dev/data/volume1           /srv/site1              ext4    defaults        0 0
 /dev/data/volume3           /srv/site2              ext4    defaults        0 0
 ```
+Changer le nom des hostnames 
+```bash
+vi /etc/hostname 
+```
 
 
 
