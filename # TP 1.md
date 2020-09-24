@@ -212,7 +212,7 @@ sudo yum install epel-release
 ```
 
 ```bash
-[root@localhost ~]# sudo yum install epel-release
+[root@node1~]# sudo yum install epel-release
 Modules complémentaires chargés : fastestmirror
 Loading mirror speeds from cached hostfile
  * base: mirrors.atosworldline.com
