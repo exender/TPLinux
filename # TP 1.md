@@ -117,3 +117,63 @@ swap                      : ignoré
 /dev/data/volume1           /srv/site1              ext4    defaults        0 0
 /dev/data/volume3           /srv/site2              ext4    defaults        0 0
 ```
+
+
+
+install de nginx sous Centos7
+Les package de Nginx sont dans les depos de Epel donc nous devons d'abord ajouter les depot via :
+
+```bash
+sudo yum install epel-release
+```
+
+```bash
+[root@localhost ~]# sudo yum install epel-release
+Modules complémentaires chargés : fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.atosworldline.com
+ * extras: ftp.pasteur.fr
+ * updates: ftp.pasteur.fr
+Résolution des dépendances
+--> Lancement de la transaction de test
+---> Le paquet epel-release.noarch 0:7-11 sera installé
+--> Résolution des dépendances terminée
+
+Dépendances résolues
+
+========================================================================================================================
+ Package                          Architecture               Version                   Dépôt                      Taille
+========================================================================================================================
+Installation :
+ epel-release                     noarch                     7-11                      extras                      15 k
+
+Résumé de la transaction
+========================================================================================================================
+Installation   1 Paquet
+
+Taille totale des téléchargements : 15 k
+Taille d'installation : 24 k
+Is this ok [y/d/N]: y
+Downloading packages:
+epel-release-7-11.noarch.rpm                                                                     |  15 kB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installation : epel-release-7-11.noarch                                                                           1/1
+  Vérification : epel-release-7-11.noarch                                                                           1/1
+
+Installé :
+  epel-release.noarch 0:7-11
+
+Terminé !
+```
+une fois fais ceci nous allons pouvoir installer nginx via :
+
+```bash 
+sudo yum install -y nginx
+```
+ce qui nous donne 
+
+```bash
+
