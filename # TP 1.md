@@ -133,7 +133,8 @@ enp0s3  ethernet  connecté  enp0s3
 enp0s8  ethernet  connecté  enp0s8
 lo      loopback  non-géré  --
 ```
-puis nous faison un curl de google.com
+Puis nous faison un curl de google.com
+
 ```bash
 [root@localhost ~]# curl google.com
 <HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
@@ -143,7 +144,48 @@ The document has moved
 <A HREF="http://www.google.com/">here</A>.
 </BODY></HTML>
 ```
+maintenant nous devons ping nos deux vm entre elle 
 
+```bash 
+[root@localhost ~]# ping 192.168.12
+PING 192.168.12 (192.168.0.12) 56(84) bytes of data.
+^C
+--- 192.168.12 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1000ms
+```
+
+```bash 
+[root@localhost ~]# ping 192.168.1.11
+PING 192.168.1.11 (192.168.1.11) 56(84) bytes of data.
+64 bytes from 192.168.1.11: icmp_seq=1 ttl=64 time=0.516 ms
+64 bytes from 192.168.1.11: icmp_seq=2 ttl=64 time=0.287 ms
+64 bytes from 192.168.1.11: icmp_seq=3 ttl=64 time=0.283 ms
+^C
+--- 192.168.1.11 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+rtt min/avg/max/mdev = 0.283/0.362/0.516/0.108 ms
+```
+on peut voir que nos 2 vm's ce ping 
+
+on doit rename nos hostname
+```bash 
+vi /etc/hostname
+```
+on remplace par node1.tp1.b2 et node2.tp1.b2
+
+puis reboot les 2 vm's pour effectuer le changement 
+
+puis on peut voir via la commande ```hostname```
+pour la premiere vm 
+```bash
+[root@node1 ~]# hostname
+node1.tp1.b2
+```
+pour la deuxieme vm 
+```bash
+[root@node2 ~]# hostname
+node2.tp1.b2
+```
 ## Install de nginx sous Centos7
 Les package de Nginx sont dans les depos de Epel donc nous devons d'abord ajouter les depot via :
 
