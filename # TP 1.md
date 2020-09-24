@@ -174,7 +174,3 @@ une fois fais ceci nous allons pouvoir installer nginx via :
 ```bash 
 sudo yum install -y nginx
 ```
-ce qui nous donne 
-
-```bash
-
