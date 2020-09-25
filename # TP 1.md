@@ -187,13 +187,62 @@ pour la deuxieme vm
 [root@node2 ~]# hostname
 node2.tp1.b2
 ```
+maintenant nous devons ping via leur noms respectif 
+
+nous devons ajouter dans le fichier /etc/hosts
+
+l'adresse ip et le nom de notre vm qui node2.tp1.b2
+
+puis ca fais 
+
+```bash
+[root@node1 tmp]# ping node1.tp1.b2
+PING node1.tp1.b2 (10.0.2.15) 56(84) bytes of data.
+64 bytes from node1.tp1.b2 (10.0.2.15): icmp_seq=1 ttl=64 time=0.010 ms
+64 bytes from node1.tp1.b2 (10.0.2.15): icmp_seq=2 ttl=64 time=0.018 ms
+^C
+--- node1.tp1.b2 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1004ms
+rtt min/avg/max/mdev = 0.010/0.014/0.018/0.004 ms
+[root@node1 tmp]#
+```
+et de meme via notre seconde vm's
+```bash
+[root@node2 ~]# ping node1.tp1.b2
+PING node1.tp1.b2 (192.168.1.11) 56(84) bytes of data.
+64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=1 ttl=64 time=0.356 ms
+64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=2 ttl=64 time=0.349 ms
+64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=3 ttl=64 time=0.254 ms
+64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=4 ttl=64 time=0.309 ms
+64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=5 ttl=64 time=0.293 ms
+64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=6 ttl=64 time=0.289 ms
+64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=7 ttl=64 time=0.309 ms
+64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=8 ttl=64 time=0.286 ms
+^C
+--- node1.tp1.b2 ping statistics ---
+8 packets transmitted, 8 received, 0% packet loss, time 7006ms
+rtt min/avg/max/mdev = 0.254/0.305/0.356/0.037 ms
+[root@node2 ~]# ping node1.tp1.b2
+PING node1.tp1.b2 (192.168.1.11) 56(84) bytes of data.
+64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=1 ttl=64 time=0.252 ms
+64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=2 ttl=64 time=0.285 ms
+64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=3 ttl=64 time=0.313 ms
+^C
+--- node1.tp1.b2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2000ms
+rtt min/avg/max/mdev = 0.252/0.283/0.313/0.028 ms
+```
+
 
 Creation de nouveau user avec les droit sudo 
 
 ```bash 
-[root@node2 ~]# useradd admin2
-[root@node2 ~]# vi /etc/sudoers
+[root@node2 ~]# useradd admin1
+[root@node2 ~]# sudo visudo 
 ```
+puis edit les droit sudo en donnant les droits sudo 
+admin1  ALL=(ALL)       ALL
+
 sur les deux vm's
 
 
@@ -274,4 +323,21 @@ Puis dans le dossier site 2
 ```bash 
 [root@node1 site1]# cd /srv/site2
 [root@node1 site2]# touch index.html
+```
+
+
+## Config de NGINX
+
+
+
+
+
+
+
+
+
+
+## étape du scripting 
+
+lien du script: https://github.com/exender/TPLinux/blob/master/tp1_backup.sh
 
