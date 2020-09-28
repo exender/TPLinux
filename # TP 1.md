@@ -16,32 +16,32 @@ Last login: Wed Sep 23 14:53:20 2020
 maintenant que notre disque est crée sur la vm nous partitionnons le disque en vm en ligne de commande 
 
 ```bash
-[root@localhost ~]# lvcreate
+[bapti@localhost ~]$ lvcreate
   No command with matching syntax recognised.  Run 'lvcreate --help' for more information.
-[root@localhost ~]# lvcreate -L 2000 -n volume1 data
+[bapti@localhost ~]$ lvcreate -L 2000 -n volume1 data
   Logical volume "volume1" created.
-[root@localhost ~]# lvscan
+[bapti@localhost ~]$ lvscan
   ACTIVE            '/dev/centos/swap' [820,00 MiB] inherit
-  ACTIVE            '/dev/centos/root' [<6,20 GiB] inherit
+  ACTIVE            '/dev/centos/bapti' [<6,20 GiB] inherit
   ACTIVE            '/dev/data/volume1' [1,95 GiB] inherit
-[root@localhost ~]# lvcreate -L 3000 -n volume3 data
+[bapti@localhost ~]$ lvcreate -L 3000 -n volume3 data
   Logical volume "volume3" created.
-[root@localhost ~]# lvscan
+[bapti@localhost ~]$ lvscan
   ACTIVE            '/dev/centos/swap' [820,00 MiB] inherit
-  ACTIVE            '/dev/centos/root' [<6,20 GiB] inherit
+  ACTIVE            '/dev/centos/bapti' [<6,20 GiB] inherit
   ACTIVE            '/dev/data/volume1' [1,95 GiB] inherit
   ACTIVE            '/dev/data/volume3' [<2,93 GiB] inherit
   ```
  maintenant nous montons les partitions dans les dossiers site 1 et site 2
 ```bash
  
-  [root@localhost srv]# mkfs -t ext4 /dev/data/Volume1
+  [bapti@localhost srv]$ mkfs -t ext4 /dev/data/Volume1
 mke2fs 1.42.9 (28-Dec-2013)
 Ne peut évaluer par stat() /dev/data/Volume1 --- Aucun fichier ou dossier de ce type
 
 Le périphérique n'existe apparemment pas ; l'avez-vous spécifié
 correctement ?
-[root@localhost srv]# mkfs -t ext4 /dev/data/volume1
+[bapti@localhost srv]$ mkfs -t ext4 /dev/data/volume1
 mke2fs 1.42.9 (28-Dec-2013)
 Étiquette de système de fichiers=
 Type de système d'exploitation : Linux
@@ -49,7 +49,7 @@ Taille de bloc=4096 (log=2)
 Taille de fragment=4096 (log=2)
 « Stride » = 0 blocs, « Stripe width » = 0 blocs
 128000 i-noeuds, 512000 blocs
-25600 blocs (5.00%) réservés pour le super utilisateur
+25600 blocs (5.00%) réadminés pour le super utilisateur
 Premier bloc de données=0
 Nombre maximum de blocs du système de fichiers=524288000
 16 groupes de blocs
@@ -64,19 +64,19 @@ Création du journal (8192 blocs) : complété
 Écriture des superblocs et de l'information de comptabilité du système de
 fichiers : complété
 
-[root@localhost srv]# mkfs -t ext4 /dev/data/volume2
+[bapti@localhost srv]$ mkfs -t ext4 /dev/data/volume2
 mke2fs 1.42.9 (28-Dec-2013)
 Ne peut évaluer par stat() /dev/data/volume2 --- Aucun fichier ou dossier de ce type
 
 Le périphérique n'existe apparemment pas ; l'avez-vous spécifié
 correctement ?
-[root@localhost srv]# mkfs -t ext4 /dev/data/Volume2
+[bapti@localhost srv]$ mkfs -t ext4 /dev/data/Volume2
 mke2fs 1.42.9 (28-Dec-2013)
 Ne peut évaluer par stat() /dev/data/Volume2 --- Aucun fichier ou dossier de ce type
 
 Le périphérique n'existe apparemment pas ; l'avez-vous spécifié
 correctement ?
-[root@localhost srv]# mkfs -t ext4 /dev/data/volume3
+[bapti@localhost srv]$ mkfs -t ext4 /dev/data/volume3
 mke2fs 1.42.9 (28-Dec-2013)
 Étiquette de système de fichiers=
 Type de système d'exploitation : Linux
@@ -84,7 +84,7 @@ Taille de bloc=4096 (log=2)
 Taille de fragment=4096 (log=2)
 « Stride » = 0 blocs, « Stripe width » = 0 blocs
 192000 i-noeuds, 768000 blocs
-38400 blocs (5.00%) réservés pour le super utilisateur
+38400 blocs (5.00%) réadminés pour le super utilisateur
 Premier bloc de données=0
 Nombre maximum de blocs du système de fichiers=786432000
 24 groupes de blocs
@@ -99,16 +99,16 @@ Création du journal (16384 blocs) : complété
 Écriture des superblocs et de l'information de comptabilité du système de
 fichiers : complété
 
-[root@localhost srv]# mount /dev/data/volume1 /srv/site1
-[root@localhost srv]# mount /dev/data/volume3 /srv/site3
+[bapti@localhost srv]$ mount /dev/data/volume1 /srv/site1
+[bapti@localhost srv]$ mount /dev/data/volume3 /srv/site3
 mount: le point de montage /srv/site3 n'existe pas
-[root@localhost srv]# mount /dev/data/volume3 /srv/site2
+[bapti@localhost srv]$ mount /dev/data/volume3 /srv/site2
 ```
 
 maintenant nous montons la partition dans fstab 
 ```bash
-[root@localhost ~]#  14L, 626C written
-[root@localhost ~]# mount -av
+[bapti@localhost ~]$  14L, 626C written
+[bapti@localhost ~]$ mount -av
 /                         : ignoré
 /boot                     : déjà monté
 swap                      : ignoré
@@ -128,7 +128,7 @@ Pour check si nous avos internet nous faisons un
 nmcli dev
 ```
 ```bash
-[root@localhost ~]# nmcli dev
+[bapti@localhost ~]$ nmcli dev
 DEVICE  TYPE      STATE     CONNECTION
 enp0s3  ethernet  connecté  enp0s3
 enp0s8  ethernet  connecté  enp0s8
@@ -137,7 +137,7 @@ lo      loopback  non-géré  --
 Puis nous faison un curl de google.com
 
 ```bash
-[root@localhost ~]# curl google.com
+[bapti@localhost ~]$ curl google.com
 <HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
 <TITLE>301 Moved</TITLE></HEAD><BODY>
 <H1>301 Moved</H1>
@@ -148,7 +148,7 @@ The document has moved
 maintenant nous devons ping nos deux vm entre elle 
 
 ```bash 
-[root@localhost ~]# ping 192.168.12
+[bapti@localhost ~]$ ping 192.168.12
 PING 192.168.12 (192.168.0.12) 56(84) bytes of data.
 ^C
 --- 192.168.12 ping statistics ---
@@ -156,7 +156,7 @@ PING 192.168.12 (192.168.0.12) 56(84) bytes of data.
 ```
 
 ```bash 
-[root@localhost ~]# ping 192.168.1.11
+[bapti@localhost ~]$ ping 192.168.1.11
 PING 192.168.1.11 (192.168.1.11) 56(84) bytes of data.
 64 bytes from 192.168.1.11: icmp_seq=1 ttl=64 time=0.516 ms
 64 bytes from 192.168.1.11: icmp_seq=2 ttl=64 time=0.287 ms
@@ -173,18 +173,28 @@ on doit rename nos hostname
 vi /etc/hostname
 ```
 on remplace par node1.tp1.b2 et node2.tp1.b2
+```bash 
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.1.11  node1.tp1.b2
+```
+```bash
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.1.12  node2.tp1.b2
+```
 
 puis reboot les 2 vm's pour effectuer le changement 
 
 puis on peut voir via la commande ```hostname```
 pour la premiere vm 
 ```bash
-[root@node1 ~]# hostname
+[bapti@node1 ~]$ hostname
 node1.tp1.b2
 ```
 pour la deuxieme vm 
 ```bash
-[root@node2 ~]# hostname
+[bapti@node2 ~]$ hostname
 node2.tp1.b2
 ```
 maintenant nous devons ping via leur noms respectif 
@@ -196,7 +206,7 @@ l'adresse ip et le nom de notre vm qui node2.tp1.b2
 puis ca fais 
 
 ```bash
-[root@node1 tmp]# ping node1.tp1.b2
+[bapti@node1 tmp]$ ping node1.tp1.b2
 PING node1.tp1.b2 (10.0.2.15) 56(84) bytes of data.
 64 bytes from node1.tp1.b2 (10.0.2.15): icmp_seq=1 ttl=64 time=0.010 ms
 64 bytes from node1.tp1.b2 (10.0.2.15): icmp_seq=2 ttl=64 time=0.018 ms
@@ -204,11 +214,11 @@ PING node1.tp1.b2 (10.0.2.15) 56(84) bytes of data.
 --- node1.tp1.b2 ping statistics ---
 2 packets transmitted, 2 received, 0% packet loss, time 1004ms
 rtt min/avg/max/mdev = 0.010/0.014/0.018/0.004 ms
-[root@node1 tmp]#
+[bapti@node1 tmp]$
 ```
 et de meme via notre seconde vm's
 ```bash
-[root@node2 ~]# ping node1.tp1.b2
+[bapti@node2 ~]$ ping node1.tp1.b2
 PING node1.tp1.b2 (192.168.1.11) 56(84) bytes of data.
 64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=1 ttl=64 time=0.356 ms
 64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=2 ttl=64 time=0.349 ms
@@ -222,7 +232,7 @@ PING node1.tp1.b2 (192.168.1.11) 56(84) bytes of data.
 --- node1.tp1.b2 ping statistics ---
 8 packets transmitted, 8 received, 0% packet loss, time 7006ms
 rtt min/avg/max/mdev = 0.254/0.305/0.356/0.037 ms
-[root@node2 ~]# ping node1.tp1.b2
+[bapti@node2 ~]$ ping node1.tp1.b2
 PING node1.tp1.b2 (192.168.1.11) 56(84) bytes of data.
 64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=1 ttl=64 time=0.252 ms
 64 bytes from node1.tp1.b2 (192.168.1.11): icmp_seq=2 ttl=64 time=0.285 ms
@@ -237,19 +247,127 @@ rtt min/avg/max/mdev = 0.252/0.283/0.313/0.028 ms
 Creation de nouveau user avec les droit sudo 
 
 ```bash 
-[root@node2 ~]# useradd admin1
-[root@node2 ~]# sudo visudo 
+[bapti@node2 ~]$ useradd admin1
+[bapti@node2 ~]$ sudo visudo 
 ```
 puis edit les droit sudo en donnant les droits sudo 
+
+```bash
+## Allow bapti to run any commands anywhere
+bapti    ALL=(ALL)       ALL
 admin1  ALL=(ALL)       ALL
+```
 
 sur les deux vm's
 
+## Utilisation que de ssh 
+vous n'utilisez QUE ssh pour administrer les machines
+
+création d'une paire de clés (sur VOTRE PC)
+```bash
+PS C:\Users\bapti\.ssh> cat .\known_hosts
+192.168.1.11 ecdsa-sha2-nistp256 [...]=
+192.168.1.12 ecdsa-sha2-nistp256 [...]=
+```
+
+déposer la clé sur l'utilisateur 
+
+Machine 1
+```bash
+PS C:\Users\bapti> ssh admin1@192.168.1.11
+admin1@192.168.1.11's password:
+Last login: Thu Sep 24 14:10:21 2020 from 192.168.1.10
+Last login: Thu Sep 24 14:10:21 2020 from 192.168.1.10
+[admin1@node1 ~]$
+```
+Machine 2
+```bash 
+PS C:\Users\bapti> ssh admin2@192.168.1.12
+admin2@192.168.1.12's password:
+Last login: Thu Sep 24 15:09:52 2020 from 192.168.1.10
+Last login: Thu Sep 24 15:09:52 2020 from 192.168.1.10
+[admin2@node2 ~]$
+```
 
 ## Firewall
-modifcation de firewall 
+le pare-feu est configuré pour bloquer toutes les connexions exceptées celles qui sont nécessaires
+
+commande firewall-cmd ou iptables
+
+Machine 1
 ```bash
-[root@node1 ~]# vi /etc/selinux/config
+[admin1@node1 ~]$ sudo firewall-cmd --list-all
+Authorization failed.
+  Make sure polkit agent is running or run the application as superuser.
+
+[admin1@node1 ~]$ sudo !!
+sudo firewall-cmd --list-all
+public (active)
+target: default
+icmp-block-inversion: no
+interfaces: enp0s3 enp0s8
+sources:
+adminices: dhcpv6-client ssh
+ports:
+protocols:
+masquerade: no
+forward-ports:
+source-ports:
+icmp-blocks:
+rich rules:
+[admin1@node1 ~]\$
+```
+Machine 2
+```bash
+[admin2@node2 ~]$ sudo firewall-cmd --list-all
+[sudo] password for admin:
+public (active)
+target: default
+icmp-block-inversion: no
+interfaces: enp0s3 enp0s8
+sources:
+adminices: dhcpv6-client ssh
+ports:
+protocols:
+masquerade: no
+forward-ports:
+source-ports:
+icmp-blocks:
+rich rules:
+[admin2@node2 ~]\$
+```
+
+
+désactiver SELinux
+
+Machine 1
+```bash
+[admin1@node1 ~]$ sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux bapti directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   permissive
+Mode from config file:          permissive
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Max kernel policy version:      31
+[admin1@node1 ~]$
+```
+Machine 2
+
+```bash
+[admin2@node2 ~]$ sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux bapti directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   permissive
+Mode from config file:          permissive
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Max kernel policy version:      31
+[admin@node2 ~]$
 ```
 
 
@@ -261,7 +379,7 @@ sudo yum install epel-release
 ```
 
 ```bash
-[root@node1~]# sudo yum install epel-release
+[admin1@node1~]$ sudo yum install epel-release
 Modules complémentaires chargés : fastestmirror
 Loading mirror speeds from cached hostfile
  * base: mirrors.atosworldline.com
@@ -312,26 +430,55 @@ sudo yum install -y nginx
 creation des fichier on doit changer de directory
 
 ```bash 
-[root@node1 ~]#  cd /srv/site1
-[root@node1 site1]#
-[root@node1 site1]# touch index.html
-[root@node1 site1]#
+[admin1@node1 ~]$  cd /srv/site1
+[admin1@node1 site1]$
+[admin1@node1 site1]$ touch index.html
+[admin1@node1 site1]$
 ```
 
 Puis dans le dossier site 2
 
 ```bash 
-[root@node1 site1]# cd /srv/site2
-[root@node1 site2]# touch index.html
+[admin1@node1 site1]$ cd /srv/site2
+[admin1@node1 site2]$ touch index.html
 ```
 
 
 ## Config de NGINX
+les permissions sur ces dossiers doivent être le plus restrictif possible et, ces dossiers doivent appartenir à un utilisateur et un groupe spécifique
+```bash
+[admin1@node1 ~]$ sudo ls -al /srv/
+total 8
+drwxr-xr-x.  4 root root   32 Sep 23 17:31 .
+dr-xr-xr-x. 17 root root  237 Sep 22 14:21 ..
+dr--------.  3 web  web  4096 Sep 24 15:39 site1
+dr--------.  3 web  web  4096 Sep 24 15:39 site2
+[admin1@node1 ~]
 
+```
+NGINX doit utiliser un utilisateur dédié que vous avez créé à cet effet
+```bash
+[admin1@node1 ~]$ sudo useradd web
+```
+les sites doivent être admin1is en HTTPS sur le port 443 et en HTTP sur le port 80
+```bash
+[admin1@node1 ~]$ sudo firewall-cmd --zone=public --add-port=443/tcp --permanent
+success
 
+[admin1@node1 ~]$ sudo firewall-cmd --permanent --zone=public --add-admin1ice=https
+success
 
+[admin1@node1 ~]$ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
+success
 
+[admin1@node1 ~]$ sudo firewall-cmd --permanent --zone=public --add-admin1ice=http
+success
 
+[admin1@node1 ~]$ sudo firewall-cmd --reload
+success
+[admin1@node1 ~]$
+
+```
 
 
 

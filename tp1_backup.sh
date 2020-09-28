@@ -13,7 +13,6 @@ dirbackup=/srv/site2-$backupdate
 
 
 # tar -cjf /destination/fichier.tar.bz2 /source1 /source2 /sourceN
-# créé une archive bz2
 # sauvegarde de /home
 /bin/tar -cjf  gzip $dirbackup/home/backup/site1-$backupdate.tar/srv/site1
 /bin/tar -cjf  gzip $dirbackup/home/backup/site2-$backupdate.tar /srv/site2
