@@ -254,7 +254,7 @@ puis edit les droit sudo en donnant les droits sudo
 
 ```bash
 ## Allow bapti to run any commands anywhere
-bapti    ALL=(ALL)       ALL
+%wheel  ALL=(ALL)       ALL
 admin1  ALL=(ALL)       ALL
 ```
 
