@@ -481,8 +481,63 @@ success
 ```
 
 
+prouvez que la machine node 2 peut joindre les sites
+
+Site 1
+
+```bash
+[admin2@node2 ~]$ curl -Lk http://node1.tp1.b2/site1
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Dummy Page</title>
+        [...]
+</head>
+
+<body>
+        <div class="pure-g">
+                <div class="pure-u-1">
+                        <h1>Stay tuned site 1 <h1>
+                        <h2>something new is coming here</h2>
+                        [...]
+                </div>
+        </div>
+</body>
+<script>
+[...]
+</script>
+</html>
+[admin2@node2 ~]$
+```
+Site 2
 
 
+```bash
+[admin2@node2 ~]$ curl -Lk http://node1.tp1.b2/site2
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Dummy Page</title>
+        [...]
+</head>
+
+<body>
+        <div class="pure-g">
+                <div class="pure-u-1">
+                        <h1>Stay tuned site 2 <h1>
+                        <h2>something new is coming here</h2>
+                        [...]
+                </div>
+        </div>
+</body>
+<script>
+[...]
+</script>
+</html>
+[admin2@node2 ~]$
+```
 
 ## étape du scripting 
 
@@ -491,6 +546,20 @@ lien du script: https://github.com/exender/TPLinux/blob/master/TP1/tp1_backup.sh
 
 ## Monitoring 
 
-Installation bash <(curl -Ss https://my-netdata.io/kickstart.sh)
-tester firewall-cmd --add-port=19999/tcp --permanent firewall-cmd --reload
+Installation
+```bash
+ bash <(curl -Ss https://my-netdata.io/kickstart.sh)
+```
 
+```bash
+tester firewall-cmd --add-port=19999/tcp --permanent firewall-cmd --reload
+```
+pour l'envoie de message sur discord 
+
+lui crée un salon dedié puis cree un webhook pour y copié le lien puis l'ajouter a notre conf netdata
+
+```bash
+[admin1@node1 ~]$ cat /etc/netdata/health_alarm_notify.conf
+https://discordapp.com/api/webhooks/760166157487046696/KV_uChPKmhRNrsCwAmyXL-xWRztM7295hj7goYYdAtVpcjb9I83K_ig9hCxztxMzPbYJ
+[admin1@node1 ~]$
+```

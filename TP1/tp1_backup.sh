@@ -1,24 +1,23 @@
 #!/bin/bash
 
-# date du jour
-backupdate=$(date +%Y-%m-%d)
+# BONNIN
+# 28/09/2020
+# Backup script
 
-#répertoire de backup
-dirbackup=/srv/site1-$backupdate
-dirbackup=/srv/site2-$backupdate
-# création du répertoire de backup
-/bin/mkdir $dirbackup
+backup_time=$(date +%Y%m%d_%H%M)
 
+saved_folder_path="${1}"
 
+saved_folder="${saved_folder_path##*/}"
 
+backup_name="${saved_folder}_${backup_time}"
 
-# tar -cjf /destination/fichier.tar.bz2 /source1 /source2 /sourceN
-# sauvegarde de /home
-/bin/tar -cjf  gzip $dirbackup/home/backup/site1-$backupdate.tar/srv/site1
-/bin/tar -cjf  gzip $dirbackup/home/backup/site2-$backupdate.tar /srv/site2
+tar -czf $backup_name.tar.gz --absolute-names $saved_folder_path
 
-export nombreSave=`ls -l | grep -c /home/backup/site1- /home/backup/site2-`
-if [[ $nombreSave < 7 ]]
-then
-find . -mmin +60 -exec rm -f {} \;
+nbr_site1=`ls -l | grep -c site1_`
+nbr_site2=`ls -l | grep -c site2_`
+
+if [ "$nbr_site1" > 7 ]; then
+        echo "ça marche"
+
 fi
