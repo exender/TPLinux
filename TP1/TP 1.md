@@ -488,3 +488,9 @@ success
 
 lien du script: https://github.com/exender/TPLinux/blob/master/TP1/tp1_backup.sh
 
+
+## Monitoring 
+
+Installation bash <(curl -Ss https://my-netdata.io/kickstart.sh)
+tester firewall-cmd --add-port=19999/tcp --permanent firewall-cmd --reload
+
