@@ -445,7 +445,7 @@ Puis dans le dossier site 2
 
 
 ## Config de NGINX
-les permissions sur ces dossiers doivent être le plus restrictif possible et, ces dossiers doivent appartenir à un utilisateur et un groupe spécifique
+Les permissions sur ces dossiers doivent être le plus restrictif possible et, ces dossiers doivent appartenir à un utilisateur et un groupe spécifique
 ```bash
 [admin1@node1 ~]$ sudo ls -al /srv/
 total 8
