@@ -7,10 +7,10 @@ Creation de disque SATA de 5 go avant de commencer a partitionner via LVM
 On lance notre vm puis connexion via ssh pour administrer les vm's
 
 ```bash
-PS C:\Users\bapti> ssh baptiste@192.168.56.99
-baptiste@192.168.56.99's password:
+PS C:\Users\bapti> ssh bapti@192.168.56.99
+bapti@192.168.56.99's password:
 Last login: Wed Sep 23 14:53:20 2020
-[baptiste@localhost ~]$
+[bapti@localhost ~]$
 ```
 
 maintenant que notre disque est crée sur la vm nous partitionnons le disque en vm en ligne de commande 
