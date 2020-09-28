@@ -486,5 +486,5 @@ success
 
 ## étape du scripting 
 
-lien du script: https://github.com/exender/TPLinux/blob/master/tp1_backup.sh
+lien du script: https://github.com/exender/TPLinux/blob/master/TP1/tp1_backup.sh
 
