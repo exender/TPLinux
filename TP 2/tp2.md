@@ -1,6 +1,6 @@
 # TP 2 Linux Vagrant
 
-## Faire la conf de vagrant file 
+## Deploiment simple
 
 Vagrant file config 
 
