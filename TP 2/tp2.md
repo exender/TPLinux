@@ -27,4 +27,7 @@ lien de du
 config.vm.disk :disk, name: "backup", size: "5GB"
 
 
-## partit 3
+## Multi-node deployment
+
+on va use les box's vagrant 
+
