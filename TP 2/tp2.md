@@ -22,5 +22,9 @@ vagrant box add centos7-custom centos7-custom.box
 ```
 
 ## Ajout du disque de 5GO
-lien de la partit 2 de vagrant file :
+on va add dans notre vagrant file 
+lien de du 
+config.vm.disk :disk, name: "backup", size: "5GB"
 
+
+## partit 3
