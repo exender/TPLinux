@@ -1,10 +1,3 @@
-# TP 2 Linux Vagrant
-
-## Deploiment simple
-
-Vagrant file config 
-
-```bash 
 
 $script = <<SCRIPT
 yum install vim -y
@@ -15,6 +8,7 @@ Vagrant.configure("2")do|config|
   config.vm.network "private_network", ip: "192.168.2.11"
   config.vm.hostname = "tp2b2"
   config.vm.provision "shell", inline: $script
+  config.vm.size = "5000"
 
  
 
@@ -43,21 +37,3 @@ config.vm.provider "virtualbox" do |v|
 end
 
 end
-```
-
-## Re-package
-
-```bash 
-sudo yum install epel-release
-```
-```bash
-sudo yum install -y nginx
-```
-## Re-package une box 
-
-```bash
-vagrant package --output centos7-tp2-b2.box
-```
-```bash
-vagrant box add centos7-custom centos7-custom.box
-```
