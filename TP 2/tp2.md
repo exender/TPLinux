@@ -61,3 +61,5 @@ vagrant package --output centos7-tp2-b2.box
 ```bash
 vagrant box add centos7-custom centos7-custom.box
 ```
+
+## Ajout du disque de 5GO
