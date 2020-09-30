@@ -27,7 +27,7 @@ lien de du
 config.vm.disk :disk, name: "backup", size: "5GB"
 
 
-## Multi-node deployment
+## Automatisation 
 
-on va use les box's vagrant 
+on va automatiser tout le tp1 via un script 
 
