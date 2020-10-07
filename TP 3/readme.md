@@ -177,7 +177,7 @@ Hint: Some lines were ellipsized, use -l to show in full.
 Created symlink from /etc/systemd/system/multi-user.target.wants/WebServer.service to /etc/systemd/system/WebServer.service.
 [vagrant@tp3 system]$
 ```
-
+```bash
 [vagrant@tp3 system]$ curl localhost:1025
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -214,7 +214,7 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/WebServer.servi
 </body>
 </html>
 [vagrant@tp3 system]$
-
+```
 
 pls acutelle 
 ![alt text](https://github.com/exender/TPLinux/blob/master/pics/the-end.gif)
