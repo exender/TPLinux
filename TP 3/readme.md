@@ -300,7 +300,7 @@ voila on peut observer que les changements ont bien été effectuer
       Architecture: x86-64
 ```
 
-Mon nom d'hote actuelle est Static hostname: localhost.localdomain
+Mon nom d'hote actuelle est  localhost.localdomain
 
 je vais changer le nom d'hote via la commande 
 
