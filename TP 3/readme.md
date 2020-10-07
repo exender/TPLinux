@@ -334,3 +334,8 @@ puis on obtien ca
             Kernel: Linux 3.10.0-1127.el7.x86_64
       Architecture: x86-64
 ```
+
+
+![alt text](https://github.com/exender/TPLinux/blob/master/pics/the-end.gif)
+
+fin du tp eazi (c fo)
