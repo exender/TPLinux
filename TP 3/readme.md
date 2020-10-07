@@ -305,7 +305,7 @@ Mon nom d'hote actuelle est  localhost.localdomain
 je vais changer le nom d'hote via la commande 
 
 ```bash 
-sudo vi /etc/hostname
+sudo hostnamectl set-hostname ouaiouailetp
 ```
 
 je vais remplacer par ouaiouailetp
