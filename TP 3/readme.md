@@ -262,14 +262,14 @@ Maintenant on va changer de fuseau
   on va lister tout les Fuseaux horraire disponible 
 ```bash
   timedatectl list-timezones
-  ```
+```
   puis set le fuseaux horraire de son choix perso Africa/Lagos
 ```bash
   timedatectl set-timezone Africa/Lagos
-  ```
+```
   puis on verifie 
 
-  ```bash 
+```bash 
   [vagrant@localhost ~]$ timedatectl
       Local time: Wed 2020-10-07 16:05:01 WAT
   Universal time: Wed 2020-10-07 15:05:01 UTC
@@ -279,9 +279,58 @@ Maintenant on va changer de fuseau
 NTP synchronized: yes
  RTC in local TZ: no
       DST active: n/a
-      ```
+```
 voila on peut observer que les changements ont bien été effectuer 
 
 ## Gestion des noms et de la résolution de noms
 
 🌞
+
+```bash
+ hostnamectl
+   Static hostname: localhost.localdomain
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 4cc14141794f474fa9cbe0f6488b5f09
+           Boot ID: d543fe9be2964b6293f61d14a2bc7b2a
+    Virtualization: kvm
+  Operating System: CentOS Linux 7 (Core)
+       CPE OS Name: cpe:/o:centos:centos:7
+            Kernel: Linux 3.10.0-1127.el7.x86_64
+      Architecture: x86-64
+```
+
+Mon nom d'hote actuelle est Static hostname: localhost.localdomain
+
+je vais changer le nom d'hote via la commande 
+
+```bash 
+sudo vi /etc/hostname
+```
+
+je vais remplacer par ouaiouailetp
+
+apres avoir sauvegarder le nom reboot la machine 
+
+puis faire un 
+
+```bash 
+hostnamectl ou hostname 
+```
+
+puis on obtien ca
+
+```bash 
+
+[vagrant@ouaiouailetp ~]$ hostnamectl
+   Static hostname: ouaiouailetp
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 4cc14141794f474fa9cbe0f6488b5f09
+           Boot ID: 09710157dbc14faaaa1dfcb869295c69
+    Virtualization: kvm
+  Operating System: CentOS Linux 7 (Core)
+       CPE OS Name: cpe:/o:centos:centos:7
+            Kernel: Linux 3.10.0-1127.el7.x86_64
+      Architecture: x86-64
+```
