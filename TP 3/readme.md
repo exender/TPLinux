@@ -24,5 +24,4 @@ systemctl -t service --all | grep running | wc -l
 systemctl list-unit-files --type=service | grep enabled | wc -l
 32
 ```
-![alt text]
-(https://github.com/exender/TPLinux/blob/master/pics/the-end.gif)
+![alt text](https://github.com/exender/TPLinux/blob/master/pics/the-end.gif)
