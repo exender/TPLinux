@@ -217,8 +217,71 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/WebServer.servi
 
 
 pls acutelle 
+![alt text](https://github.com/exender/TPLinux/blob/master/pics/the-end.gif)
+tjr en pls apres ca 
 
 ## sauvegarde 
 
 🌞
 
+
+
+
+
+
+
+## II. Autres fonctionnalités 
+
+🌞
+## Gestion de boot 
+
+
+
+
+## Gestion de l'heure 
+```bash 
+[vagrant@localhost system]$ timedatectl
+      Local time: Wed 2020-10-07 14:44:25 UTC
+  Universal time: Wed 2020-10-07 14:44:25 UTC
+        RTC time: Wed 2020-10-07 14:44:24
+       Time zone: UTC (UTC, +0000)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a
+
+```
+
+donc on peut voir que l'on est synchroniser sur un serveur NTP
+
+et on est sur le fuseau horraire 
+  Time zone: UTC (UTC, +0000)
+
+Maintenant on va changer de fuseau 
+
+  on va lister tout les Fuseaux horraire disponible 
+```bash
+  timedatectl list-timezones
+  ```
+  puis set le fuseaux horraire de son choix perso Africa/Lagos
+```bash
+  timedatectl set-timezone Africa/Lagos
+  ```
+  puis on verifie 
+
+  ```bash 
+  [vagrant@localhost ~]$ timedatectl
+      Local time: Wed 2020-10-07 16:05:01 WAT
+  Universal time: Wed 2020-10-07 15:05:01 UTC
+        RTC time: Wed 2020-10-07 15:05:00
+       Time zone: Africa/Lagos (WAT, +0100)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a
+      ```
+voila on peut observer que les changements ont bien été effectuer 
+
+## Gestion des noms et de la résolution de noms
+
+🌞
