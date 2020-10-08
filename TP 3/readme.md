@@ -224,7 +224,54 @@ tjr en pls apres ca
 
 🌞
 
+Créez une unité de service qui déclenche une sauvegarde avec votre script
+On créer un user sudo useradd backup. On lui met un mot de passe sudo passwd backup.
 
+On fait la commande : sudo usermod -aG wheel backup
+
+On configure notre unité de service :
+```bash
+[vagrant@localhost ~]$ sudo vim /etc/systemd/system/backup.service
+```
+(La config se trouve sur le git dans systemd/units/)
+
+On reload : sudo systemctl daemon-reload
+
+On rempli l'index.html pour la forme.
+```bash 
+[vagrant@localhost ~]$ sudo vim /srv/site1/index.html
+
+[vagrant@localhost ~]$ cat /srv/site1/index.html
+Index site1
+[vagrant@localhost ~]$ sudo vim pre_backup.sh
+[vagrant@localhost ~]$ sudo vim backup.sh
+[vagrant@localhost ~]$ sudo vim after_backup.sh
+```
+(Le contenu des scripts se trouve sur le git dans scripts_tp/)
+
+Ecrire un fichier .timer systemd
+Lance la backup toutes les heures :
+
+On configure notre timer :
+```bash
+[vagrant@localhost ~]$ sudo vim /usr/lib/systemd/system/backup.timer
+```
+(Sa config se trouve sur le git dans systemd/units/)
+
+On démarre le timer et on lui dit de démarrer lorsque la machine démarre.
+```bash
+[vagrant@localhost ~]$ sudo systemctl start backup.timer
+[vagrant@localhost ~]$ sudo systemctl enable backup.timer
+```
+On liste les timers pour vérifier qu'il est bien ajouté :
+```bash
+[vagrant@localhost ~]$ systemctl list-timers
+NEXT                         LEFT     LAST                         PASSED       UNIT                         ACTIVATE
+Wed 2020-10-07 11:00:00 UTC  45s left n/a                          n/a          backup.timer                 backup.s
+Thu 2020-10-08 08:45:14 UTC  21h left Wed 2020-10-07 08:45:14 UTC  2h 13min ago systemd-tmpfiles-clean.timer systemd-
+```
+2 timers listed.
+Notre backup.timer est bien mis en place.
 
 
 
@@ -236,8 +283,14 @@ tjr en pls apres ca
 ## Gestion de boot 
 
 
+On fait ```bash systemd-analyze plot > oue.svg ``` pour récupérer les infos de la commande, puis on l'analyse.
 
-
+Après analyse du fichier plot.svg, les 3 services les plus lents à démarrer sont :
+```bash
+web.service
+firewalld.service
+swapfile.swap
+```
 ## Gestion de l'heure 
 ```bash 
 [vagrant@localhost system]$ timedatectl
