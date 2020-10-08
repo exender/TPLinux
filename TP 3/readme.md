@@ -283,7 +283,7 @@ Notre backup.timer est bien mis en place.
 ## Gestion de boot 
 
 
-On fait ```bash systemd-analyze plot > oue.svg ``` pour récupérer les infos de la commande, puis on l'analyse.
+On fait ```bash systemd-analyze plot > oue.svg ``` "pour récupérer les infos de la commande, puis on l'analyse.
 
 Après analyse du fichier plot.svg, les 3 services les plus lents à démarrer sont :
 ```bash
@@ -347,8 +347,8 @@ voila on peut observer que les changements ont bien été effectuer
         Machine ID: 4cc14141794f474fa9cbe0f6488b5f09
            Boot ID: d543fe9be2964b6293f61d14a2bc7b2a
     Virtualization: kvm
-  Operating System: CentOS Linux 7 (Core)
-       CPE OS Name: cpe:/o:centos:centos:7
+  Operating System: CentOS Linux 8 (Core)
+       CPE OS Name: cpe:/o:centos:centos:8
             Kernel: Linux 3.10.0-1127.el7.x86_64
       Architecture: x86-64
 ```
@@ -382,8 +382,8 @@ puis on obtien ca
         Machine ID: 4cc14141794f474fa9cbe0f6488b5f09
            Boot ID: 09710157dbc14faaaa1dfcb869295c69
     Virtualization: kvm
-  Operating System: CentOS Linux 7 (Core)
-       CPE OS Name: cpe:/o:centos:centos:7
+  Operating System: CentOS Linux 8 (Core)
+       CPE OS Name: cpe:/o:centos:centos:8
             Kernel: Linux 3.10.0-1127.el7.x86_64
       Architecture: x86-64
 ```
@@ -391,4 +391,4 @@ puis on obtien ca
 
 ![alt text](https://github.com/exender/TPLinux/blob/master/pics/the-end.gif)
 
-fin du tp eazi (c fo)
+fin du tp eazi (c fo) nan en vrai il etait cool
