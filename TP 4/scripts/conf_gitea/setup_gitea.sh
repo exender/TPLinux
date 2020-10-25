@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# LAFOREST Arthur
+# BAPTISTE
 # 13/10/2020
 # script setup gitea
 
