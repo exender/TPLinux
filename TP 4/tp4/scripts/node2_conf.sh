@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# LAFOREST Arthur
+# BAPTISTE
 # 25/10/2020
 # script d'install node2
 
