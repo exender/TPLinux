@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# BAPTISTE
+# LAFOREST Arthur
 # 13/10/2020
 # script d'install
 
