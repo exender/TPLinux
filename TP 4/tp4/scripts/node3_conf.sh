@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# LAFOREST Arthur
+# BAPTISTE
 # 24/10/2020
 # script d'install node3
 
